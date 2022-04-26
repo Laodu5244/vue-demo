@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="app">
+    <form v-on:submit.prevent="addNewTodo">
+      <label for="new-todo">创建:</label>
+      <input v-model="newTodoText" id="new-todo" placeholder="请输入">
+      <button>添加</button>
+    </form>
+    <ul>
+      <li is="todo-item" v-for="(todo,index) in todos" v-bind:key="todo.id" v-bind:title="todo.title"
+        v-on:remove="todos.splice(index,1)"></li>
+    </ul>
+  </div>
+
+  <script src="./vue.min.js"></script>
+  <script>
+    Vue.component('todo-item', {
+      template: '\
+        <li>\
+          {{title}}\
+          <button v-on:click="$emit(\'remove\')">删除</button>\
+          </li>\
+        ',
+      props: ['title']
+    })
+
+    new Vue({
+      el: '.app',
+      data: {
+        newTodoText: '',
+        todos: [
+          { id: 1, title: '东邪' },
+          { id: 2, title: '洪七公' },
+          { id: 3, title: '独孤求败' }
+        ],
+        nextTodoId: 4
+      },
+      methods: {
+        addNewTodo: function () {
+          this.todos.push({
+            id: this.nextTodoId++,
+            title: this.newTodoText
+          })
+          this.newTodoText = ''
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
