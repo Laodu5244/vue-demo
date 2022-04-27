@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>圆点波浪动画</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="camera -x">
+      <div class="camera -y">
+        <div class="camera -z">
+          <div class="sea">
+            <!-- --d为自定义属性,css中可通过var函数对其调用,这里用来存放每个wave的动画延迟时间(单位毫秒) -->
+            <div class="wave" v-for="item in 100" :style="{'--d':item*-30+'ms'}">
+              <div class="counter -z">
+                <div class="counter -y">
+                  <div class="counter -x">
+                    <div class="ball"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./vue.min.js"></script>
+  <script>
+    new Vue({
+      el: '#container',
+      data: {}
+    })
+  </script>
+</body>
+
+</html>
