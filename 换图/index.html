@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    img {
+      width: 400px;
+      height: 240px;
+    }
+
+    button {
+      width: 100px;
+      height: 40px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="changeImg">换图</button>
+    <button @click="display" id="btn2">隐藏</button> <br>
+    <img :src="url">
+  </div>
+  <script src="vue.min.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        url: "./04.webp"
+      },
+      methods: {
+        changeImg() {
+          // this指向vue实例(vm)
+          if (this.url === './04.webp') {
+            this.url = './03.webp';
+          } else {
+            this.url = './04.webp';
+          }
+        },
+        display() {
+          if (btn2.innerText === "隐藏") {
+            btn2.innerText = "显示";
+            document.querySelector('img').style.display = 'none';
+          } else {
+            btn2.innerText = "隐藏";
+            document.querySelector('img').style.display = 'block';
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
