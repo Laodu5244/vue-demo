@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{ msg }}</h2>
+    <button @click="change1">click</button>
+    <hr>
+    <img :src="url"><br>
+    <button @click="change2">click</button>
+    <hr>
+    <div class="box">
+      <button @click="add">++</button>
+      <span>{{num}}</span>
+      <button @click="sub">--</button>
+    </div>
+  </div>
+
+  <script src="./vue.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        url: 'Folder.jpg',
+        num: 0
+      },
+      methods: {
+        change1() {
+          if (this.msg === 'hello vue') {
+            this.msg = 'hello html'
+          } else {
+            this.msg = 'hello vue'
+          }
+        },
+        change2() {
+          if (this.url === 'Folder.jpg') {
+            this.url = 'front.jpg'
+          } else {
+            this.url = 'Folder.jpg'
+          }
+        },
+        add() { this.num++ },
+        sub() {
+          if (this.num > 0) {
+            this.num--
+          }
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>
