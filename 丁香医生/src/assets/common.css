@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img{
+  border: 0;
+}
+
+html{
+  font-size: 13.3333vw;
+}
+
+body{
+  font-size: 14px;
+}
